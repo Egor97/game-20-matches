@@ -8,8 +8,8 @@ class ControlGameService {
         int playerValue = consoleSendMessage.getValuePlayer();
 
         if (playerValue < 1 || playerValue > 3) {
-            consoleSendMessage.incorrectSelection();
-            consoleSendMessage.getCountMatches(getValue());
+            consoleSendMessage.consoleMessageAboutIncorrectSelection();
+            consoleSendMessage.consoleMessageAboutCountMatches(value);
             getSelectPlayer();
         } else {
             setValue(value - playerValue);
@@ -21,27 +21,23 @@ class ControlGameService {
         ComputerLogic computerLogic = new ComputerLogic();
 
         while (value != 1) {
-            consoleSendMessage.getCountMatches(getValue());
+            consoleSendMessage.consoleMessageAboutCountMatches(value);
 
-            int computerMatches = computerLogic.selectMatch(getValue());
-            consoleSendMessage.computerSelectMatches(computerMatches);
+            int computerMatches = computerLogic.selectMatch(value);
+            consoleSendMessage.consoleMessageAboutComputerSelectMatches(computerMatches);
             setValue(value - computerMatches);
 
             if (value == 1 ) {
-                consoleSendMessage.finishGame();
+                consoleSendMessage.consoleMessageAboutFinishGame();
                 break;
             }
 
-            consoleSendMessage.getCountMatches(getValue());
+            consoleSendMessage.consoleMessageAboutCountMatches(value);
 
             getSelectPlayer();
         }
 
         return -1;
-    }
-
-    private int getValue() {
-        return value;
     }
 
     private void setValue(int value) {

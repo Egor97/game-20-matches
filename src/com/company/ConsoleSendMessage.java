@@ -5,11 +5,11 @@ import java.util.Scanner;
 import static java.lang.System.*;
 
 class ConsoleSendMessage {
-    void getCountMatches(int countMatchesLeft) {
+    void consoleMessageAboutCountMatches(int countMatchesLeft) {
         out.println("На столе осталось " + countMatchesLeft +  " спичек.");
     }
 
-    void computerSelectMatches(int value) {
+    void consoleMessageAboutComputerSelectMatches(int value) {
         out.println("- Количество выбранных компьютером спичек = " + value + ".");
     }
 
@@ -20,11 +20,11 @@ class ConsoleSendMessage {
         return scanner.nextInt();
     }
 
-    void finishGame() {
+    void consoleMessageAboutFinishGame() {
         out.println("Для игрока осталась последняя спичка. Игрок проиграл!");
     }
 
-    void incorrectSelection() {
+    void consoleMessageAboutIncorrectSelection() {
         out.println("Некооректное количество спичек!");
     }
 }
